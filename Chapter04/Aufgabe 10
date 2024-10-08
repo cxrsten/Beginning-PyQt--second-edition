@@ -1,16 +1,28 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QWidget
+from PyQt6.QtWidgets import QApplication, QLabel, QVBoxLayout, QWidget
+from PyQt6.QtGui import QPixmap
 
-# Erstellen der Anwendung
 app = QApplication(sys.argv)
 
-# Erstellen des Fensters
 window = QWidget()
-window.setGeometry(400, 100, 350, 200)  # x=400, y=100, Breite=350, Höhe=200
-window.setWindowTitle('Leeres Fenster')
+window.setWindowTitle('Fenster mit Bild')
 
-# Fenster anzeigen
+label_image = QLabel()
+pixmap = QPixmap('/Users/carstensebastianstephan/Documents/Informatik/Beginning-PyQt--second-edition/Chapter04/bild.jpg')
+
+if pixmap.isNull():
+    print("Bild konnte nicht geladen werden.")
+else:
+    label_image.setPixmap(pixmap)
+
+label_text = QLabel('Tolles Bild')
+
+layout = QVBoxLayout()
+layout.addWidget(label_image)
+layout.addWidget(label_text)
+
+window.setLayout(layout)
 window.show()
 
-# Beenden der Anwendung
-sys.exit(app.exec_())
+sys.exit(app.exec())
+
