@@ -1,0 +1,16 @@
+import sys
+from PyQt5.QtWidgets import QApplication, QWidget
+
+# Erstellen der Anwendung
+app = QApplication(sys.argv)
+
+# Erstellen des Fensters
+window = QWidget()
+window.setGeometry(400, 100, 350, 200)  # x=400, y=100, Breite=350, Höhe=200
+window.setWindowTitle('Leeres Fenster')
+
+# Fenster anzeigen
+window.show()
+
+# Beenden der Anwendung
+sys.exit(app.exec_())
